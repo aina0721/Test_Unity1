@@ -25,8 +25,7 @@ public class PlayerControllerX : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();
 
         // Apply a small upward force at the start of the game
-        playerRb.AddForce(Vector3.up * 5, ForceMode.Impulse);
-
+        playerRb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -36,6 +35,7 @@ public class PlayerControllerX : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && !gameOver)
         {
             playerRb.AddForce(Vector3.up * floatForce);
+            playerRb.AddForce(Vector3.up * 5, ForceMode.Impulse);
         }
     }
 
